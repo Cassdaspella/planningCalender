@@ -4,14 +4,18 @@ import java.util.Scanner;
 
 public class Date {
     public static void main(String[] args) {
+        EventPlanner events = new EventPlanner();
+        boolean end = false;
+        while (!end){
 //this grabs the current date
         currentDate();
-        EventPlanner events = new EventPlanner();
-        System.out.println(events.toString());
+        
         System.out.println("Hello and welcome to your Planning Calculator! \n\nPlease choose from the following options:");
         
         Scanner scanner = new Scanner(System.in);
         boolean validInput = false;
+        
+        System.out.println(events.toString());
 // asks users for a int option of 1-4 of the following:
         while (!validInput) {
             System.out.println(events.toString());
@@ -37,6 +41,7 @@ public class Date {
             }
             else if (numInput.equals("4")) {
                 validInput = true;
+                end = true;
                 System.out.println("Exiting Calender...");
                 scanner.close();
                 return;
@@ -46,6 +51,7 @@ public class Date {
                 System.out.println("That isn't an option! Please try again");
             }
         }
+    }
     }
 //grabs current date
     public static void currentDate() {
