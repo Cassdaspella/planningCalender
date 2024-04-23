@@ -62,7 +62,7 @@ public class EventPlanner {
                 addNewEvent(scanner, eventDate);
             } else if ("no".equalsIgnoreCase(choice)) {
                 System.out.println("Returning to the Main menu...");
-                Date.main(new String[]{});
+                return;
             } else {
                 System.out.println("Invalid choice! Returning to Main Menu... \n");
                 viewEvent(scanner);
@@ -88,7 +88,8 @@ public class EventPlanner {
         events.add(event);
         System.out.println("Event added successfully!");
         System.out.println(event);
-        Date.main(new String[]{});// Users are taken to the main menu
+        return;
+        // Users are taken to the main menu
     }
 
     // This displays the events

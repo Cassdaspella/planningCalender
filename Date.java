@@ -11,11 +11,8 @@ public class Date {
         currentDate();
         
         System.out.println("Hello and welcome to your Planning Calculator! \n\nPlease choose from the following options:");
-        
         Scanner scanner = new Scanner(System.in);
         boolean validInput = false;
-        
-        System.out.println(events.toString());
 // asks users for a int option of 1-4 of the following:
         while (!validInput) {
             System.out.println(events.toString());
