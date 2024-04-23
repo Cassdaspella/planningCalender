@@ -1,6 +1,5 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.Scanner;
 
 public class EventPlanner {
@@ -14,13 +13,29 @@ public class EventPlanner {
     // This method will have users input a certain date to view an event from today or in the future.
     // If there is no event, it will ask if the user wants to add an event to that day.
     public void viewEvent(Scanner scanner) {
-        System.out.println(events.toString());
+        // this is to check everything inside the saved arraylists ==> System.out.println(events.toString());
         // asks for month and day
         System.out.println("Please enter the month (MM): ");
+        while (!scanner.hasNextInt()){
+            System.out.println("Please enter the month's digits (MM)");
+            scanner.next();
+        }
         int month = scanner.nextInt();
+        if (month < 00 || month > 12) {
+            System.out.println("Please enter an appropriate month!");
+            viewEvent(scanner);
+        }
 
         System.out.println("Please enter the date (DD): ");
+        while (!scanner.hasNextInt()){
+            System.out.println("Please enter the day's digits (DD)");
+            scanner.next();
+        }
         int day = scanner.nextInt();
+        if (day < 00 || day > 31) {
+            System.out.println("Please enter an appropriate day!");
+            viewEvent(scanner);
+        }
 
         // saves those inputs into this LocalDate eventDate
         LocalDate eventDate = LocalDate.of(LocalDate.now().getYear(), month, day);
@@ -31,7 +46,6 @@ public class EventPlanner {
             viewEvent(scanner);
             return;
         }
-        
         // if there are events on the day, it will show all the events for it
         if (!events.isEmpty()) {
             System.out.println("Events for " + eventDate + ":");
@@ -50,8 +64,8 @@ public class EventPlanner {
                 System.out.println("Returning to the Main menu...");
                 return;
             } else {
-                System.out.println("Invalid choice! Returning to Main Menu... \n");
-                return;
+                System.out.println("Invalid choice! Please try again! \n");
+                viewEvent(scanner);
             }
         } else {
             // if there are no events for that day...
@@ -64,7 +78,7 @@ public class EventPlanner {
                 System.out.println("Returning to the Main menu...");
                 return;
             } else {
-                System.out.println("Invalid choice! Returning to Main Menu... \n");
+                System.out.println("Invalid choice! Please try again! \n");
                 viewEvent(scanner);
             }
         }
@@ -73,16 +87,20 @@ public class EventPlanner {
     // This is where users will continue their questionnaire to create their events on the day.
     private void addNewEvent(Scanner scanner, LocalDate eventDate) {
         System.out.println("Please enter the priority level (1-5) of the event: ");
+        while (!scanner.hasNextInt()){
+            System.out.println("Please enter a number 1-5");
+            scanner.next();
+        }
         int priority = scanner.nextInt();
-        if (priority <= 0 || priority > 5) {
-            System.out.println("Please insert a priority level between 1 and 5.");
+        if (priority < 0 || priority > 5) {
             addNewEvent(scanner, eventDate);
             return;
         }
         System.out.println("Please enter the title of the event: ");
-        String title = scanner.next();
+        scanner.nextLine();
+        String title = scanner.nextLine();
         System.out.println("Please enter the description of the event: ");
-        String description = scanner.next();
+        String description = scanner.nextLine();
         Event event = new Event(eventDate, title, description, priority);
         // The event is saved into the events ArrayList
         events.add(event);
@@ -92,9 +110,8 @@ public class EventPlanner {
         // Users are taken to the main menu
     }
 
-    // This displays the events
+    /*  This displays the events
     public void displayEvents() {
-        events.sort(Comparator.comparing(Event::getDate));
         System.out.println("Events:");
         if (events.isEmpty()) {
             System.out.println("No events added yet.");
@@ -104,5 +121,5 @@ public class EventPlanner {
             }
         }
     }
-
+    */
 }

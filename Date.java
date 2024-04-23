@@ -15,14 +15,13 @@ public class Date {
         boolean validInput = false;
 // asks users for a int option of 1-4 of the following:
         while (!validInput) {
-            System.out.println(events.toString());
+            // save for later for events tostring ==> System.out.println(events.toString());
             System.out.println("   1. Add/View Events\n   2. Add Alarm\n   3. View a certain month\n   4. Exit Calender   ");
 
             String numInput = scanner.next();
 
             if (numInput.equals("1")) {
                 validInput = true;
-                System.out.println(events.toString());
                 events.viewEvent(scanner);
                 //Perform action for option 1
             }

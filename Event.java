@@ -16,6 +16,9 @@ public class Event {
     public LocalDate getDate() {
         return date;
     }
+    public int getPriority(){
+        return priority;
+    }
 
     @Override
     public String toString() {
