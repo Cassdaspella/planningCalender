@@ -33,7 +33,7 @@ public class EventPlanner {
         }
         int day = scanner.nextInt();
         if (day < 00 || day > 31) {
-            System.out.println("Please enter an appropriate day!");
+            System.out.println("Please enter an appropriate day! Restarting...");
             viewEvent(scanner);
         }
 

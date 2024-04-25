@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Date {
     public static void main(String[] args) {
         EventPlanner events = new EventPlanner();
+        AlarmPlanner alarms = new AlarmPlanner();
         boolean end = false;
         while (!end){
 //this grabs the current date
@@ -27,7 +28,7 @@ public class Date {
             }
             else if (numInput.equals("2")) {
                 validInput = true;
-                System.out.println("THIS AREA IS A WIP");
+                alarms.viewAlarm(scanner);
                 // Perform action for option 2
             }
             else if (numInput.equals("3")) {
