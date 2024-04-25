@@ -9,8 +9,11 @@ public class Date {
         boolean end = false;
         while (!end){
 //this grabs the current date
-        currentDate();
-        
+        LocalDate today = currentDate();
+        System.out.println("Today's date is: " + today.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+
+// Check and display alarms for today
+        displayAlarmsForToday(alarms, today);
         System.out.println("Hello and welcome to your Planning Calculator! \n\nPlease choose from the following options:");
         Scanner scanner = new Scanner(System.in);
         boolean validInput = false;
@@ -50,14 +53,18 @@ public class Date {
         }
     }
     }
+    public static LocalDate currentDate() {
+        return LocalDate.now();
+    }
 //grabs current date
-    public static void currentDate() {
-        LocalDate currentDate = LocalDate.now();
-        
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        
-        String formattedDate = currentDate.format(formatter);
-        
-        System.out.println("Today's date is: " + formattedDate);
+    public static void displayAlarmsForToday(AlarmPlanner alarms, LocalDate today) {
+        if (!alarms.alarms.isEmpty()) {
+            System.out.println("\nAlarms for today:");
+            for (Alarm alarm : alarms.alarms) {
+                if (today.equals(alarm.getDate())) {
+                    System.out.println(alarm.toString());
+                }
+            }
+        }
     }
 }
