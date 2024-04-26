@@ -9,29 +9,39 @@ public class AlarmPlanner {
         this.alarms = new ArrayList<>();
     }
     public void viewAlarm(Scanner scanner) {
+        boolean endMonth = false;
+        boolean endDay = false;
+        int month = 0;
+        int day = 0;
         // asks for month and day
+        while(!endMonth){
         System.out.println("Please enter the month (MM): ");
         while (!scanner.hasNextInt()){
             System.out.println("Please enter the month's digits (MM)");
             scanner.next();
         }
-        int month = scanner.nextInt();
-        if (month < 00 || month > 12) {
-            System.out.println("Please enter an appropriate month!");
-            viewAlarm(scanner);
+        month = scanner.nextInt();
+        if (month >= 01 && month <= 12) {
+            endMonth = true;
         }
-
+        else {
+            System.out.println("Please enter an appropriate month!");
+        }
+    }
+        while (!endDay){
         System.out.println("Please enter the date (DD): ");
         while (!scanner.hasNextInt()){
             System.out.println("Please enter the day's digits (DD)");
             scanner.next();
         }
-        int day = scanner.nextInt();
-        if (day < 00 || day > 31) {
-            System.out.println("Please enter an appropriate day! Restarting...");
-            viewAlarm(scanner);
+        day = scanner.nextInt();
+        if (day >= 01 && day <= 31) {
+            endDay = true;
         }
-
+        else {
+            System.out.println("Please enter an appropriate day! Restarting...");
+        }
+    }
         // saves those inputs into this LocalDate eventDate
         LocalDate alarmDate = LocalDate.of(LocalDate.now().getYear(), month, day);
 
@@ -39,7 +49,6 @@ public class AlarmPlanner {
         if (alarmDate.isBefore(LocalDate.now())) {
             System.out.println("Invalid date! Please enter today's date or a future date.");
             viewAlarm(scanner);
-            return;
         }
         // if there are events on the day, it will show all the events for it
         //SAVE THIS FOR THE MAIN FILE!!! WE NEED IT TO BE RED IN THE TERMINAL!
@@ -108,11 +117,15 @@ public class AlarmPlanner {
          // saves those inputs into this LocalDate eventDate
         LocalDate alarmDate2 = LocalDate.of(LocalDate.now().getYear(), month2, day2);
 
+        if (alarmDate2.isBefore(LocalDate.now())) {
+            System.out.println("Invalid date! Please enter today's date or a future date.");
+            viewAlarm(scanner);
+        }
+
          // if the user input a date that was in the past, the users won't be able to with this if statement and be asked again.
         if (alarmDate.isBefore(LocalDate.now())) {
             System.out.println("Invalid date! Please enter today's date or a future date.");
             addNewAlarm(scanner,alarmDate);
-            return;
         }
         System.out.println("Please enter the title of the event: ");
         scanner.nextLine();

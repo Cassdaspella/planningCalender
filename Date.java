@@ -59,7 +59,6 @@ public class Date {
 //grabs current date
     public static void displayAlarmsForToday(AlarmPlanner alarms, LocalDate today) {
         if (!alarms.alarms.isEmpty()) {
-            System.out.println("\nAlarms for today:");
             for (Alarm alarm : alarms.alarms) {
                 if (today.equals(alarm.getDate())) {
                     System.out.println(alarm.toString());
