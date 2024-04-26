@@ -21,34 +21,34 @@ public class EventPlanner {
         int month = 0;
 //++++++++++++++++++++++++++++++++++++++ Initialize stuff here^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         while (!endMonths){
-        System.out.println("Please enter the month (MM): ");
-        while (!scanner.hasNextInt()){
-            System.out.println("Please enter the month's digits (MM)");
-            scanner.next();
+            System.out.println("Please enter the month (MM): ");
+            while (!scanner.hasNextInt()){
+                System.out.println("Please enter the month's digits (MM)");
+                scanner.next();
+            }
+            month = scanner.nextInt();
+            if (month >= 01 && month <= 12) {
+                endMonths = true;
+            }
+            else {
+                System.out.println("Please enter an appropriate month!");
+            }
         }
-        month = scanner.nextInt();
-        if (month >= 01 && month <= 12) {
-            endMonths = true;
-        }
-        else {
-            System.out.println("Please enter an appropriate month!");
-        }
-    }
 //++++++++++++++++++++++++++++++++++++++ Months here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         while(!endDays){
-        System.out.println("Please enter the date (DD): ");
-        while (!scanner.hasNextInt()){
-            System.out.println("Please enter the day's digits (DD)");
-            scanner.next();
+            System.out.println("Please enter the date (DD): ");
+            while (!scanner.hasNextInt()){
+                System.out.println("Please enter the day's digits (DD)");
+                scanner.next();
+            }
+            day = scanner.nextInt();
+            if (day >= 01 && day <= 31) {
+                endDays = true;
+            }
+            else {
+                System.out.println("Please enter an appropriate day! Please try again...");
+            }
         }
-        day = scanner.nextInt();
-        if (day >= 01 && day <= 31) {
-            endDays = true;
-        }
-        else {
-            System.out.println("Please enter an appropriate day! Please try again...");
-        }
-    }
 //++++++++++++++++++++++++++++++++++++++ Days here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ Fix
         // saves those inputs into this LocalDate eventDate
         LocalDate eventDate = LocalDate.of(LocalDate.now().getYear(), month, day);
@@ -70,18 +70,18 @@ public class EventPlanner {
             System.out.println("Would you like to add a new event for this date? (yes/no)");
             boolean endYesorNo = false;
             while (!endYesorNo) {
-            String choice = scanner.next();
-            if ("yes".equalsIgnoreCase(choice)) {
-                addNewEvent(scanner, eventDate);
-                endYesorNo = true;
-            } else if ("no".equalsIgnoreCase(choice)) {
-                System.out.println("Returning to the Main menu... \n+++++++++++++++++++++++++");
-                endYesorNo = true;
-                return;
-            } else {
-                System.out.println("Invalid choice! Please try again!");
+                String choice = scanner.next();
+                if ("yes".equalsIgnoreCase(choice)) {
+                    addNewEvent(scanner, eventDate);
+                    endYesorNo = true;
+                } else if ("no".equalsIgnoreCase(choice)) {
+                    System.out.println("Returning to the Main menu... \n+++++++++++++++++++++++++");
+                    endYesorNo = true;
+                    return;
+                } else {
+                    System.out.println("Invalid choice! Please try again!");
+                }
             }
-        }
         } else {
             // if there are no events for that day...
             System.out.println("+++++++++++++++++++++++++\nNo events found for " + eventDate + ".");
@@ -104,19 +104,19 @@ public class EventPlanner {
         boolean endPriority = false;
         int priority = 0;
         while(!endPriority){
-        System.out.println("Please enter the priority level (1-5) of the event: ");
-        while (!scanner.hasNextInt()){
-            System.out.println("Please enter a number 1-5");
-            scanner.next();
+            System.out.println("Please enter the priority level (1-5) of the event: ");
+            while (!scanner.hasNextInt()){
+                System.out.println("Please enter a number 1-5");
+                scanner.next();
+            }
+            priority = scanner.nextInt();
+            if (priority >= 1 && priority <= 5) {
+                endPriority = true;
+            }
+            else {
+                System.out.println("Please enter a number 1-5!");
+            }
         }
-        priority = scanner.nextInt();
-        if (priority >= 1 && priority <= 5) {
-            endPriority = true;
-        }
-        else {
-            System.out.println("Please enter a number 1-5!");
-        }
-    }
 //++++++++++++++++++++++++++++++++++++++ Priority Stuff here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         System.out.println("Please enter the title of the event: ");
         scanner.nextLine();

@@ -16,33 +16,33 @@ public class AlarmPlanner {
 //++++++++++++++++++++++++++++++++++++++ Initialize stuff here^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         // asks for month and day
         while(!endMonth){
-        System.out.println("Please enter the month (MM): ");
-        while (!scanner.hasNextInt()){
-            System.out.println("Please enter the month's digits (MM)");
-            scanner.next();
-        }
+            System.out.println("Please enter the month (MM): ");
+            while (!scanner.hasNextInt()){
+                System.out.println("Please enter the month's digits (MM)");
+                scanner.next();
+            }
         month = scanner.nextInt();
-        if (month >= 01 && month <= 12) {
-            endMonth = true;
+            if (month >= 01 && month <= 12) {
+                endMonth = true;
+            }
+            else {
+                System.out.println("Please enter an appropriate month!");
+            }
         }
-        else {
-            System.out.println("Please enter an appropriate month!");
-        }
-    }
         while (!endDay){
-        System.out.println("Please enter the date (DD): ");
-        while (!scanner.hasNextInt()){
-            System.out.println("Please enter the day's digits (DD)");
-            scanner.next();
+            System.out.println("Please enter the date (DD): ");
+            while (!scanner.hasNextInt()){
+                System.out.println("Please enter the day's digits (DD)");
+                scanner.next();
+            }
+            day = scanner.nextInt();
+            if (day >= 01 && day <= 31) {
+                endDay = true;
+            }
+            else {
+                System.out.println("Please enter an appropriate day! Restarting...");
+            }
         }
-        day = scanner.nextInt();
-        if (day >= 01 && day <= 31) {
-            endDay = true;
-        }
-        else {
-            System.out.println("Please enter an appropriate day! Restarting...");
-        }
-    }
         // saves those inputs into this LocalDate eventDate
         LocalDate alarmDate = LocalDate.of(LocalDate.now().getYear(), month, day);
 
