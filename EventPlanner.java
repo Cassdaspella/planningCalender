@@ -46,7 +46,7 @@ public class EventPlanner {
             endDays = true;
         }
         else {
-            System.out.println("Please enter an appropriate day! Restarting...");
+            System.out.println("Please enter an appropriate day! Please try again...");
         }
     }
 //++++++++++++++++++++++++++++++++++++++ Days here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ Fix
@@ -114,7 +114,7 @@ public class EventPlanner {
             endPriority = true;
         }
         else {
-            System.out.println("Gosh darn it, please enter a number 1-5! >:[");
+            System.out.println("Please enter a number 1-5!");
         }
     }
 //++++++++++++++++++++++++++++++++++++++ Priority Stuff here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -128,7 +128,7 @@ public class EventPlanner {
         // The event is saved into the events ArrayList
         events.add(event);
         System.out.println("Event added successfully!");
-        System.out.println(event);
+        System.out.println(event + "\n+++++++++++++++++++++++++");
         return;
         // Users are taken to the main menu
     }

@@ -13,6 +13,7 @@ public class AlarmPlanner {
         boolean endDay = false;
         int month = 0;
         int day = 0;
+//++++++++++++++++++++++++++++++++++++++ Initialize stuff here^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         // asks for month and day
         while(!endMonth){
         System.out.println("Please enter the month (MM): ");
@@ -101,7 +102,7 @@ public class AlarmPlanner {
             scanner.next();
         }
         int month2 = scanner.nextInt();
-        if (month2 < 00 || month2 > 12) {
+        if (month2 < 00 && month2 > 12) {
             System.out.println("Please enter an appropriate month!");
             addNewAlarm(scanner,alarmDate);
             return;
@@ -113,7 +114,7 @@ public class AlarmPlanner {
             scanner.next();
         }
         int day2 = scanner.nextInt();
-        if (day2 < 00 || day2 > 31) {
+        if (day2 < 00 && day2 > 31) {
             System.out.println("Please enter an appropriate day! Restarting...");
             addNewAlarm(scanner,alarmDate);
             return;
