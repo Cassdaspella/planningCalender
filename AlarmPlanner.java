@@ -49,6 +49,7 @@ public class AlarmPlanner {
         if (alarmDate.isBefore(LocalDate.now())) {
             System.out.println("Invalid date! Please enter today's date or a future date.");
             viewAlarm(scanner);
+            return;
         }
         // if there are events on the day, it will show all the events for it
         //SAVE THIS FOR THE MAIN FILE!!! WE NEED IT TO BE RED IN THE TERMINAL!
@@ -71,6 +72,7 @@ public class AlarmPlanner {
             } else {
                 System.out.println("Invalid choice! Please try again! \n");
                 viewAlarm(scanner);
+                return;
             }
         } else {
             // if there are no events for that day...
@@ -85,6 +87,7 @@ public class AlarmPlanner {
             } else {
                 System.out.println("Invalid choice! Please try again! \n");
                 viewAlarm(scanner);
+                return;
             }
         }
     }
@@ -101,6 +104,7 @@ public class AlarmPlanner {
         if (month2 < 00 || month2 > 12) {
             System.out.println("Please enter an appropriate month!");
             addNewAlarm(scanner,alarmDate);
+            return;
         }
 
         System.out.println("Please enter another date (DD): ");
@@ -112,6 +116,7 @@ public class AlarmPlanner {
         if (day2 < 00 || day2 > 31) {
             System.out.println("Please enter an appropriate day! Restarting...");
             addNewAlarm(scanner,alarmDate);
+            return;
         }
 
          // saves those inputs into this LocalDate eventDate
@@ -120,12 +125,14 @@ public class AlarmPlanner {
         if (alarmDate2.isBefore(LocalDate.now())) {
             System.out.println("Invalid date! Please enter today's date or a future date.");
             viewAlarm(scanner);
+            return;
         }
 
          // if the user input a date that was in the past, the users won't be able to with this if statement and be asked again.
         if (alarmDate.isBefore(LocalDate.now())) {
             System.out.println("Invalid date! Please enter today's date or a future date.");
             addNewAlarm(scanner,alarmDate);
+            return;
         }
         System.out.println("Please enter the title of the event: ");
         scanner.nextLine();
