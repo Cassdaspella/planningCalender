@@ -101,16 +101,22 @@ public class EventPlanner {
 //++++++++++++++++++++++++++++++++++++++ Ending Finding Events here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     // This is where users will continue their questionnaire to create their events on the day.
     private void addNewEvent(Scanner scanner, LocalDate eventDate) {
+        boolean endPriority = false;
+        int priority = 0;
+        while(!endPriority){
         System.out.println("Please enter the priority level (1-5) of the event: ");
         while (!scanner.hasNextInt()){
             System.out.println("Please enter a number 1-5");
             scanner.next();
         }
-        int priority = scanner.nextInt();
-        if (priority < 0 && priority > 5) {
-            addNewEvent(scanner, eventDate);
-            return;
+        priority = scanner.nextInt();
+        if (priority >= 1 && priority <= 5) {
+            endPriority = true;
         }
+        else {
+            System.out.println("Gosh darn it, please enter a number 1-5! >:[");
+        }
+    }
 //++++++++++++++++++++++++++++++++++++++ Priority Stuff here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         System.out.println("Please enter the title of the event: ");
         scanner.nextLine();
