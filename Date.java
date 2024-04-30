@@ -6,6 +6,7 @@ public class Date {
     public static void main(String[] args) {
         EventPlanner events = new EventPlanner();
         AlarmPlanner alarms = new AlarmPlanner();
+        MonthViewer months = new MonthViewer(events.events);
         boolean end = false;
         while (!end){
 //this grabs the current date
@@ -36,7 +37,7 @@ public class Date {
             }
             else if (numInput.equals("3")) {
                 validInput = true;
-                System.out.println("THIS AREA IS A WIP");
+                months.viewMonthEvents(scanner);
                 // Perform action for option 3
             }
             else if (numInput.equals("4")) {
