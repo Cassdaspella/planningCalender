@@ -16,14 +16,14 @@ public class Date {
             // Check and display alarms for today
             displayAlarmsForToday(alarms, today);
             System.out.println(
-                    "Hello and welcome to your Planning Calculator! \n\nPlease choose from the following options:");
+                    "Hello and welcome to your Planning Calendar! \n\nPlease choose from the following options:");
             Scanner scanner = new Scanner(System.in);
             boolean validInput = false;
             // asks users for a int option of 1-4 of the following:
             while (!validInput) {
                 // save for later for events tostring ==> System.out.println(events.toString());
                 System.out.println(
-                        "   1. Add/View Events\n   2. Add Alarm\n   3. View a certain month\n   4. Exit Calender   ");
+                        "   1. Add/View Events\n   2. Add Alarm\n   3. View a certain month\n   4. Exit Calendar   ");
 
                 String numInput = scanner.next();
 
@@ -42,7 +42,7 @@ public class Date {
                 } else if (numInput.equals("4")) {
                     validInput = true;
                     end = true;
-                    System.out.println("Exiting Calender...");
+                    System.out.println("Exiting Calendar...");
                     scanner.close();
                     return;
                     // Perform action for option 4
