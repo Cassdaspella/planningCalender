@@ -14,7 +14,7 @@ public class AlarmPlanner {
         boolean endDay = false;
         int month = 0;
         int day = 0;
-// ++++++++++++++++++++++++++++++++++++++ Initialize stuff here^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        // ++++++++++++++++++++++++++++++++++++++ Initialize stuff here^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         // asks for month and day
         while (!endMonth) {
             System.out.println("Please enter the month (MM): ");
@@ -29,7 +29,7 @@ public class AlarmPlanner {
                 System.out.println("Please enter an appropriate month! Try Again");
             }
         }
-// ++++++++++++++++++++++++++++++++++++++ Ending Month here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        // ++++++++++++++++++++++++++++++++++++++ Ending Month here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         while (!endDay) {
             System.out.println("Please enter the date (DD): ");
             while (!scanner.hasNextInt()) {
@@ -43,12 +43,11 @@ public class AlarmPlanner {
                 System.out.println("Please enter an appropriate day! Try again!");
             }
         }
-// ++++++++++++++++++++++++++++++++++++++ Ending Day here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        // ++++++++++++++++++++++++++++++++++++++ Ending Day here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         // saves those inputs into this LocalDate eventDate
         LocalDate alarmDate = LocalDate.of(LocalDate.now().getYear(), month, day);
 
-        // if the user input a date that was in the past, the users won't be able to
-        // with this if statement and be asked again.
+        // if the user input a date that was in the past, the users won't be able to with this if statement and be asked again.
         if (alarmDate.isBefore(LocalDate.now())) {
             System.out.println("Invalid date! Please enter today's date or a future date.");
             viewAlarm(scanner);
@@ -63,7 +62,7 @@ public class AlarmPlanner {
                     System.out.println(alarm);
                 }
             }
-// ++++++++++++++++++++++++++++++++++++++ Saving Alarms here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            // ++++++++++++++++++++++++++++++++++++++ Saving Alarms here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             System.out.println("Would you like to add an alarm for this date? (yes/no)");
             String choice = scanner.next();
             boolean endYesorNo = false;
@@ -100,7 +99,7 @@ public class AlarmPlanner {
         }
     }
 
-// ++++++++++++++++++++++++++++++++++++++ Ending View Alarms & Yes/No Options here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    // ++++++++++++++++++++++++++++++++++++++ Ending View Alarms & Yes/No Options here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     // This is where users will continue their questionnaire to create their events on the day.
     // This is where useres are able to add a second date in which will be the duration of the alarm that will shine on the main menu with red! Make sure to edit
     private void addNewAlarm(Scanner scanner, LocalDate alarmDate) {
@@ -109,7 +108,7 @@ public class AlarmPlanner {
         boolean endDay2 = false;
         int month2 = 0;
         int day2 = 0;
-// ++++++++++++++++++++++++++++++++++++++ Initialize stuff here^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        // ++++++++++++++++++++++++++++++++++++++ Initialize stuff here^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         // asks for month and day
         while (!endMonth2) {
             System.out.println("Please enter ANOTHER month (MM): ");
@@ -124,7 +123,7 @@ public class AlarmPlanner {
                 System.out.println("Please enter an appropriate month! Try Again");
             }
         }
-// ++++++++++++++++++++++++++++++++++++++ Ending Months2 here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        // ++++++++++++++++++++++++++++++++++++++ Ending Months2 here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         while (!endDay2) {
             System.out.println("Please enter ANOTHER date (DD): ");
             while (!scanner.hasNextInt()) {
@@ -138,7 +137,7 @@ public class AlarmPlanner {
                 System.out.println("Please enter an appropriate day! Try Again");
             }
         }
-// ++++++++++++++++++++++++++++++++++++++ Ending Days2 here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        // ++++++++++++++++++++++++++++++++++++++ Ending Days2 here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         // saves those inputs into this LocalDate eventDate
         LocalDate alarmDate2 = LocalDate.of(LocalDate.now().getYear(), month2, day2);
 
@@ -152,7 +151,7 @@ public class AlarmPlanner {
             addNewAlarm(scanner, alarmDate);
             return;
         }
-// ++++++++++++++++++++++++++++++++++++++ Ending Alarm Checks of Current Date & Comapre here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        // ++++++++++++++++++++++++++++++++++++++ Ending Alarm Checks of Current Date & Comapre here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         System.out.println("Please enter the title of the event: ");
         scanner.nextLine();
         String title = scanner.nextLine();

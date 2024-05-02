@@ -20,7 +20,7 @@ public class EventPlanner {
         boolean endDays = false;
         int day = 0;
         int month = 0;
-// ++++++++++++++++++++++++++++++++++++++ Initialize stuff here^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        // ++++++++++++++++++++++++++++++++++++++ Initialize stuff here^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         while (!endMonths) {
             System.out.println("Please enter the month (MM): ");
             while (!scanner.hasNextInt()) {
@@ -34,7 +34,7 @@ public class EventPlanner {
                 System.out.println("Please enter an appropriate month!");
             }
         }
-// ++++++++++++++++++++++++++++++++++++++ Months here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        // ++++++++++++++++++++++++++++++++++++++ Months here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         while (!endDays) {
             System.out.println("Please enter the date (DD): ");
             while (!scanner.hasNextInt()) {
@@ -48,7 +48,7 @@ public class EventPlanner {
                 System.out.println("Please enter an appropriate day! Please try again...");
             }
         }
-// ++++++++++++++++++++++++++++++++++++++ Days here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        // ++++++++++++++++++++++++++++++++++++++ Days here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         // saves those inputs into this LocalDate eventDate
         LocalDate eventDate = LocalDate.of(LocalDate.now().getYear(), month, day);
         // if the user input a date that was in the past, the users won't be able to with this if statement and be asked again.
@@ -65,7 +65,7 @@ public class EventPlanner {
                     System.out.println(event);
                 }
             }
-// ++++++++++++++++++++++++++++++++++++++ Checking Events here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            // ++++++++++++++++++++++++++++++++++++++ Checking Events here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             System.out.println("Would you like to add a new event for this date? (yes/no)");
             boolean endYesorNo = false;
             while (!endYesorNo) {
@@ -102,7 +102,7 @@ public class EventPlanner {
         }
     }
 
-// ++++++++++++++++++++++++++++++++++++++ Ending Finding Events here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    // ++++++++++++++++++++++++++++++++++++++ Ending Finding Events here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     // This is where users will continue their questionnaire to create their events on the day.
     private void addNewEvent(Scanner scanner, LocalDate eventDate) {
         boolean endPriority = false;
@@ -120,13 +120,13 @@ public class EventPlanner {
                 System.out.println("Please enter a number 1-5!");
             }
         }
-// ++++++++++++++++++++++++++++++++++++++ Priority Stuff here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        // ++++++++++++++++++++++++++++++++++++++ Priority Stuff here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         System.out.println("Please enter the title of the event: ");
         scanner.nextLine();
         String title = scanner.nextLine();
         System.out.println("Please enter the description of the event: ");
         String description = scanner.nextLine();
-// ++++++++++++++++++++++++++++++++++++++ Entering Title and Descriptions here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        // ++++++++++++++++++++++++++++++++++++++ Entering Title and Descriptions here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         Event event = new Event(eventDate, title, description, priority);
         // The event is saved into the events ArrayList
         events.add(event);
@@ -136,6 +136,7 @@ public class EventPlanner {
         return;
         // Users are taken to the main menu
     }
+
     public void sortEvents() {
         Comparator<Event> priorityCompare = new Comparator<Event>() {
             public int compare(Event event1, Event event2) {

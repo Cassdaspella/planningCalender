@@ -16,7 +16,8 @@ public class Event {
     public LocalDate getDate() {
         return date;
     }
-    public int getPriority(){
+
+    public int getPriority() {
         return priority;
     }
 

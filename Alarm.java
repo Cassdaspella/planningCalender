@@ -14,6 +14,7 @@ public class Alarm {
     public LocalDate getDate() {
         return date;
     }
+
     public LocalDate getDate2() {
         return date2;
     }

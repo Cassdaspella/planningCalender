@@ -65,8 +65,7 @@ public class MonthViewer {
                     System.out.println(alarm);
                 }
             }
-        }
-        else {
+        } else {
             // if there are no events for that day...
             System.out.println("No Alarms found for " + monthName + ".");
             System.out.println("Please make an alarm! \n++++++++++++++++++++++++++++++\n");
@@ -78,13 +77,13 @@ public class MonthViewer {
                     System.out.println(event);
                 }
             }
-        }
-        else {
+        } else {
             // if there are no events for that day...
             System.out.println("No events found for " + monthName + ".");
             System.out.println("Please make an event! Redirecting to main menu \n++++++++++++++++++++++++++++++\n");
         }
     }
+
     public void sortByDate() {
         Comparator<Event> dateCompare = new Comparator<Event>() {
             public int compare(Event event1, Event event2) {
