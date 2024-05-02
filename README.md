@@ -1,5 +1,6 @@
-# planningCalendar
-A Terminal Based Planning Calender
+# planningCalender
+A Terminal-Based Planning Calender
+(Yes I realize that I have been misspelling Calendar this entire time)
 
 option 1: Event Planner
 
