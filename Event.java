@@ -31,7 +31,7 @@ public class Event {
                 break;
         }
     }
-
+// ++++++++++++++++++++++++++++++++++++++ Doing Color Stuff here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     public LocalDate getDate() {
         return date;
     }
