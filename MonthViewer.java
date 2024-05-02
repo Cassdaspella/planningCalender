@@ -60,6 +60,7 @@ public class MonthViewer {
 
         System.out.println("Alarms and Events for " + monthName + ":\n");
         if (!alarms.isEmpty()) {
+            sortByDate();
             for (Alarm alarm : alarms) {
                 if (alarm.getDate().getMonthValue() == month) {
                     System.out.println(alarm);
@@ -85,12 +86,18 @@ public class MonthViewer {
     }
 // ++++++++++++++++++++++++++++++++++++++ View Month Activities here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     public void sortByDate() {
-        Comparator<Event> dateCompare = new Comparator<Event>() {
+        Comparator<Event> dateEventCompare = new Comparator<Event>() {
             public int compare(Event event1, Event event2) {
                 return event1.getDate().compareTo(event2.getDate());
             }
         };
-        Collections.sort(events, dateCompare);
+        Comparator<Alarm> dateAlarmCompare = new Comparator<Alarm>() {
+            public int compare(Alarm alarm1, Alarm alarm2) {
+                return alarm1.getDate().compareTo(alarm2.getDate());
+            }
+        };
+        Collections.sort(events, dateEventCompare);
+        Collections.sort(alarms, dateAlarmCompare);
     }
     // ++++++++++++++++++++++++++++++++++++++ View Date Sorts here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 }
