@@ -1,5 +1,7 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class EventPlanner {
@@ -128,10 +130,19 @@ public class EventPlanner {
         Event event = new Event(eventDate, title, description, priority);
         // The event is saved into the events ArrayList
         events.add(event);
+        sortEvents();
         System.out.println("Event added successfully!");
         System.out.println(event + "\n+++++++++++++++++++++++++");
         return;
         // Users are taken to the main menu
+    }
+    public void sortEvents() {
+        Comparator<Event> priorityCompare = new Comparator<Event>() {
+            public int compare(Event event1, Event event2) {
+                return Integer.compare(event1.getPriority(), event2.getPriority());
+            }
+        };
+        Collections.sort(events, priorityCompare);
     }
 }
 // ++++++++++++++++++++++++++++++++++++++ Ending the Creation of Events here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

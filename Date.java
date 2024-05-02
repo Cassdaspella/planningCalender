@@ -6,7 +6,7 @@ public class Date {
     public static void main(String[] args) {
         EventPlanner events = new EventPlanner();
         AlarmPlanner alarms = new AlarmPlanner();
-        MonthViewer months = new MonthViewer(events.events);
+        MonthViewer months = new MonthViewer(events.events, alarms.alarms);
         boolean end = false;
         while (!end){
 //this grabs the current date

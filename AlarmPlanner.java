@@ -81,7 +81,7 @@ public class AlarmPlanner {
             }
         } else {
             // if there are no events for that day...
-            System.out.println("No events found for " + alarmDate + ".");
+            System.out.println("No alarms found for " + alarmDate + ".");
             System.out.println("Would you like to add an alarm for this date? (yes/no)");
             String choice = scanner.next();
             boolean endYesorNo = false;
@@ -112,7 +112,7 @@ public class AlarmPlanner {
 // ++++++++++++++++++++++++++++++++++++++ Initialize stuff here^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         // asks for month and day
         while (!endMonth2) {
-            System.out.println("Please enter another month (MM): ");
+            System.out.println("Please enter ANOTHER month (MM): ");
             while (!scanner.hasNextInt()) {
                 System.out.println("Please enter the month's digits (MM)! Try Again!");
                 scanner.next();
@@ -126,7 +126,7 @@ public class AlarmPlanner {
         }
 // ++++++++++++++++++++++++++++++++++++++ Ending Months2 here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         while (!endDay2) {
-            System.out.println("Please enter another date (DD): ");
+            System.out.println("Please enter ANOTHER date (DD): ");
             while (!scanner.hasNextInt()) {
                 System.out.println("Please enter the day's digits (DD)! Try Again!");
                 scanner.next();

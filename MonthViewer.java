@@ -4,9 +4,11 @@ import java.util.Scanner;
 public class MonthViewer {
 
     private ArrayList<Event> events;
+    private ArrayList<Alarm> alarms;
 
-    public MonthViewer(ArrayList<Event> events) {
+    public MonthViewer(ArrayList<Event> events, ArrayList<Alarm> alarms) {
         this.events = events;
+        this.alarms = alarms;
     }
 
     public void viewMonthEvents(Scanner scanner) {
@@ -54,18 +56,30 @@ public class MonthViewer {
             monthName = "December";
         }
 
-        System.out.println("Events for " + monthName + ":\n");
+        System.out.println("Alarms and Events for " + monthName + ":\n");
+        if (!alarms.isEmpty()) {
+            for (Alarm alarm : alarms) {
+                if (alarm.getDate().getMonthValue() == month) {
+                    System.out.println(alarm);
+                }
+            }
+        }
+        else {
+            // if there are no events for that day...
+            System.out.println("No Alarms found for " + monthName + ".");
+            System.out.println("Please make an alarm! \n++++++++++++++++++++++++++++++\n");
+        }
         if (!events.isEmpty()) {
             for (Event event : events) {
                 if (event.getDate().getMonthValue() == month) {
                     System.out.println(event);
                 }
             }
-        } else {
+        }
+        else {
             // if there are no events for that day...
             System.out.println("No events found for " + monthName + ".");
             System.out.println("Please make an event! Redirecting to main menu \n++++++++++++++++++++++++++++++\n");
         }
     }
 }
-        
