@@ -152,7 +152,7 @@ public class AlarmPlanner {
             return;
         }
         // ++++++++++++++++++++++++++++++++++++++ Ending Alarm Checks of Current Date & Comapre here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-        System.out.println("Please enter the title of the event: ");
+        System.out.println("Please enter the title of the alarm: ");
         scanner.nextLine();
         String title = scanner.nextLine();
         Alarm alarm = new Alarm(alarmDate, title, alarmDate2);
