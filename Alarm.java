@@ -20,7 +20,7 @@ public class Alarm {
 
     @Override
     public String toString() {
-        return "   \u001B[31mAlarm Today!: " + title + "\n" +
+        return "\n   \u001B[31mAlarm Today!: " + title + "\n" +
                 "     From: " + date + "\n" +
                 "     To: " + date2 + "\n\u001B[0m";
     }

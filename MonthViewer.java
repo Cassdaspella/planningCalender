@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class MonthViewer {
@@ -70,6 +72,7 @@ public class MonthViewer {
             System.out.println("Please make an alarm! \n++++++++++++++++++++++++++++++\n");
         }
         if (!events.isEmpty()) {
+            sortByDate();
             for (Event event : events) {
                 if (event.getDate().getMonthValue() == month) {
                     System.out.println(event);
@@ -81,5 +84,13 @@ public class MonthViewer {
             System.out.println("No events found for " + monthName + ".");
             System.out.println("Please make an event! Redirecting to main menu \n++++++++++++++++++++++++++++++\n");
         }
+    }
+    public void sortByDate() {
+        Comparator<Event> dateCompare = new Comparator<Event>() {
+            public int compare(Event event1, Event event2) {
+                return event1.getDate().compareTo(event2.getDate());
+            }
+        };
+        Collections.sort(events, dateCompare);
     }
 }
