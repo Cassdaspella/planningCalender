@@ -12,7 +12,7 @@ public class MonthViewer {
         this.events = events;
         this.alarms = alarms;
     }
-
+// ++++++++++++++++++++++++++++++++++++++ Calling the Events and Alarms here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     public void viewMonthEvents(Scanner scanner) {
         boolean endMonth = false;
         int month = 0;
@@ -83,7 +83,7 @@ public class MonthViewer {
             System.out.println("Please make an event! Redirecting to main menu \n++++++++++++++++++++++++++++++\n");
         }
     }
-
+// ++++++++++++++++++++++++++++++++++++++ View Month Activities here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     public void sortByDate() {
         Comparator<Event> dateCompare = new Comparator<Event>() {
             public int compare(Event event1, Event event2) {
@@ -92,4 +92,5 @@ public class MonthViewer {
         };
         Collections.sort(events, dateCompare);
     }
+    // ++++++++++++++++++++++++++++++++++++++ View Date Sorts here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 }

@@ -131,6 +131,7 @@ public class EventPlanner {
         // The event is saved into the events ArrayList
         events.add(event);
         sortEvents();
+        // ++++++++++++++++++++++++++++++++++++++ Sorts are Called here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         System.out.println("Event added successfully!");
         System.out.println(event + "\n+++++++++++++++++++++++++");
         return;
@@ -145,5 +146,6 @@ public class EventPlanner {
         };
         Collections.sort(events, priorityCompare);
     }
+    // ++++++++++++++++++++++++++++++++++++++ Sorting by Priorities here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 }
 // ++++++++++++++++++++++++++++++++++++++ Ending the Creation of Events here ^^^ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
