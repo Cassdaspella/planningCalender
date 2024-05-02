@@ -1,4 +1,4 @@
-# planningCalender
+# planningCalendar
 A Terminal Based Planning Calender
 
 option 1: Event Planner
